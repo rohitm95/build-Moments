@@ -1,0 +1,170 @@
+<div class="header">
+  <span class="logo"> <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" /> </span>
+  <div class="body">
+    <span class="sign-up"> Sign Up </span>
+    <span class="signInFooter"> To be a member </span>
+    <form [formGroup]="profileForm">
+      <div class="formContents">
+        <div class="form-group">
+          <mat-form-field floatLabel="always">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="Your First Name"
+              type="text"
+              formControlName="firstName"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-error *ngIf="f['firstName'].invalid && f['firstName'].touched">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field floatLabel="always">
+            <mat-label>Mobile No.</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="10 digit Mobile Number"
+              formControlName="mobileNumber"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>phone_iphone</mat-icon>
+            </button>
+            <mat-error *ngIf="f['mobileNumber'].invalid && f['mobileNumber'].touched">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field floatLabel="always">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              placeholder="City Name"
+              type="text"
+              formControlName="city"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>location_on</mat-icon>
+            </button>
+            <mat-error *ngIf="f['city'].invalid && f['city'].touched">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+          
+        </div>
+        <div class="form-group">
+          <mat-form-field floatLabel="always">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Your Last Name"
+              type="text"
+              formControlName="lastName"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field floatLabel="always">
+            <mat-label>Email-ID</mat-label>
+            <input
+              matInput
+              type="email"
+              placeholder="Your email id"
+              formControlName="email"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>mail_outline</mat-icon>
+            </button>
+            <mat-error *ngIf="f['email'].invalid && f['email'].touched">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field floatLabel="always">
+            <mat-label>Enter Password</mat-label>
+            <input
+              matInput
+              placeholder="Enter Password"
+              type="password"
+              formControlName="password"
+              required
+            />
+            <button
+              matPrefix
+              mat-icon-button
+              class="icon-button"
+              aria-hidden="true"
+            >
+              <mat-icon>lock</mat-icon>
+            </button>
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="f['password'].invalid && f['password'].touched">{{
+            getErrorMessage()
+          }}</mat-error>
+          </mat-form-field>
+          
+        </div>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!profileForm.valid"
+        type="submit"
+        class="signup"
+        (click)="signup(profileForm)"
+      >
+        Submit
+      </button>
+    </form>
+    <span class="notAMember"
+      >Already a member?
+      <span class="signUp" (click)="navigateToSignIn()">Sign In</span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<mat-toolbar class="header">
+  <button mat-button class="sidenav-toggle" (click)="toggleSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <img src="assets/images/duck.jpg" class="menu-img" />
+  <button class="menu-toggle" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logOut()">Logout</button>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,78 @@
+<div class="header">
+  <span class="logo"> <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" /> </span>
+  <div class="body">
+    <span class="signIn"> Sign In </span>
+    <span class="signInFooter"> To start using the app </span>
+    <form [formGroup]="profileForm">
+      <div class="form-group">
+        <mat-form-field floatLabel="always">
+          <mat-label>Enter email id</mat-label>
+          <input
+            matInput
+            placeholder="ministry@government.in"
+            type="email"
+            formControlName="email"
+            required
+          />
+          <button
+            matPrefix
+            mat-icon-button
+            class="icon-button"
+            aria-hidden="true"
+          >
+            <mat-icon>mail_outline</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="f['email'].invalid && f['email'].touched">{{
+          getErrorMessage()
+        }}</mat-error>
+      </div>
+      <div class="form-group">
+        <mat-form-field floatLabel="always">
+          <mat-label>Enter password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            required
+            placeholder="Password"
+          />
+          <button
+            matPrefix
+            mat-icon-button
+            class="icon-button"
+            aria-hidden="true"
+          >
+            <mat-icon>lock</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="f['password'].invalid && f['password'].touched">{{
+          getErrorMessage()
+        }}</mat-error>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!profileForm.valid"
+        type="submit"
+        class="login"
+        (click)="login(profileForm)"
+      >
+        Sign In
+      </button>
+    </form>
+    <span class="notAMember"
+      >Not a member?
+      <span class="signUp" (click)="navigateToSignUp()">Sign Up</span>
+    </span>
+  </div>
+</div>

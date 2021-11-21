@@ -1,0 +1,28 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav #sidenav mode="side" class="app-sidenav" [opened]="opened">
+    <mat-toolbar class="logo-toolbar">
+      <div class="logo"> <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" /> </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item style="padding-left: 10px; font-weight: 400; font-style: normal; font-size: 18px;">Profile</mat-list-item>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="(panelOpenState)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="panel-title"> Moments </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul>
+            <li style="font-weight: 500; font-style: normal; font-size: 16px;">Moment List</li>
+            <li class="add-new-moment-link">
+              <a>Add New Moment</a>
+            </li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (sidenav)="sidenav.toggle()"></app-header>
+    <app-moments-list></app-moments-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

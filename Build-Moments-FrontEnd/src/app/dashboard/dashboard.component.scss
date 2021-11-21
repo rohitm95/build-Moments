@@ -1,0 +1,67 @@
+mat-sidenav.mat-drawer-side {
+  border: none;
+}
+
+mat-toolbar.mat-toolbar {
+  background-color: #fff;
+}
+
+.panel-title {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.logo {
+  height: 65px;
+  width: 65px;
+  margin: auto;
+  text-align: center;
+}
+
+.logo-toolbar {
+  height: 100px;
+}
+
+mat-list-item {
+  margin: 20px 0 20px 0;
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  font-weight: bold;
+
+  li {
+    text-align: justify;
+    margin: 15px;
+  }
+
+  li.add-new-moment-link {
+    list-style-type: none;
+    font-weight: 400;
+    padding-left: 15px;
+    font-style: normal;
+    font-size: 16px;
+  }
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+.app-sidenav-container {
+  flex: 1;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.app-sidenav {
+  width: 250px;
+}
+
+mat-nav-list {
+  margin: 0;
+}

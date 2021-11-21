@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    overflow: auto;
+    th {
+      font-weight: 500;
+      font-style: normal;
+      font-size: 20px;
+      border: none;
+    }
+  
+    td {
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      padding: 6px 0 6px 0;
+      border: none;
+    }
+  
+    mat-chip {
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+    }
+  }
+  
+  .mat-sort-header-container, .mat-chip-list-wrapper {
+    justify-content: center !important;
+  }
+  
+  .container-title {
+    font-size: 20px;
+    padding: 19px 0 19px 25px;
+    font-weight: 700;
+  }
+  
+  .img-list {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+  }
+  

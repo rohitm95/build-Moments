@@ -1,0 +1,78 @@
+.header {
+  background-color: #001B30;
+  text-align: center;
+  .logo {
+    height: 20px;
+    width: 20px;
+    padding: 20px;
+    line-height: 22vh;
+  }
+  .body {
+    background-color: white;
+    border-top-left-radius: 50px 20px;
+    .sign-up {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 80px;
+      letter-spacing: 0em;
+      text-align: left;
+      width: 100vw;
+      display: block;
+      text-align: center;
+    }
+    .signInFooter {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0em;
+      text-align: left;
+      width: 100vw;
+      display: block;
+      text-align: center;
+    }
+    form {
+      width: 60vw;
+      margin: auto;
+      margin-top: 70px;
+      .formContents {
+        display: flex;
+        margin: auto;
+        .form-group {
+          width: 30vw;
+          height: 30vh;
+          text-align: left;
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          mat-form-field {
+            width: 100%;
+            margin: 10px;
+            font-size: 16px;
+          }
+        }
+        .icon-button {
+          font-size: 25px;
+          pointer-events: none;
+        }
+      }
+    }
+    button.signup {
+      width: 150px;
+      border-radius: 25px 25px;
+      margin: 30px 0 10px 0;
+      background-color: #001B30;
+      color: white;
+    }
+  }
+  .notAMember {
+    line-height: 50px;
+    width: 20vw;
+    .signUp {
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
