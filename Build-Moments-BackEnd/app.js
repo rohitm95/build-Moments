@@ -11,7 +11,7 @@ var morgan = require('morgan')
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
 
-const MONGODB_URI = 'mongodb+srv://rohit-admin:AVCL0NpcgGNrcri2@cluster0.yvazp.mongodb.net/moments';
+const MONGODB_URI = 'mongodb+srv://rohitm95:jbMS2zI5m6umJ8Vr@cluster0.zow71as.mongodb.net/moments';
 
 const app = express();
 
