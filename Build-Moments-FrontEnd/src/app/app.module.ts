@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    DashboardModule
+    DashboardModule,
+    MatSelectCountryModule.forRoot('en'), // you can use 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'hu' | 'it' | 'nl' | 'pt' --> MatSelectCountrySupportedLanguages
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,12 +33,16 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required]],
+      mobileNumber: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]{10}$')],
+      ],
       city: ['', [Validators.required]],
     });
   }
 
   hide = true;
+  errorMessage = '';
 
   ngOnInit(): void {}
 
@@ -48,6 +52,7 @@ export class SignupComponent implements OnInit {
 
   signup(form: UntypedFormGroup) {
     // console.log(form.value);
+    this.getErrorMessage();
     this.authService.signup(form.value);
   }
 
@@ -57,13 +62,18 @@ export class SignupComponent implements OnInit {
       this.f['password'].hasError('required') ||
       this.f['firstName'].hasError('required') ||
       this.f['lastName'].hasError('required') ||
-      this.f['mobileNumber'].hasError('required') ||
       this.f['city'].hasError('required')
     ) {
-      return 'You must enter a value';
+      this.errorMessage = 'You must enter a value';
     }
 
-    return this.f['email'].hasError('email') ? 'Not a valid email' : '';
+    if (this.f['mobileNumber'].hasError('pattern')) {
+      this.errorMessage = '10 digit phone number is required';
+    }
+
+    if (this.f['email'].hasError('email')) {
+      this.errorMessage = 'Not a valid email';
+    }
   }
 
   navigateToSignIn() {

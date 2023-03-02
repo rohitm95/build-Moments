@@ -24,17 +24,22 @@
               <mat-icon>person_outline</mat-icon>
             </button>
             <mat-error *ngIf="f['firstName'].invalid && f['firstName'].touched">{{
-              getErrorMessage()
+              errorMessage
             }}</mat-error>
           </mat-form-field>
           
           <mat-form-field floatLabel="always">
             <mat-label>Mobile No.</mat-label>
+            <!-- <mat-select-country
+                    label="Country"
+                    formControlName="countryFormControl">
+            </mat-select-country> -->
             <input
               matInput
               type="text"
               placeholder="10 digit Mobile Number"
               formControlName="mobileNumber"
+              maxlength="10"
               required
             />
             <button
@@ -45,8 +50,8 @@
             >
               <mat-icon>phone_iphone</mat-icon>
             </button>
-            <mat-error *ngIf="f['mobileNumber'].invalid && f['mobileNumber'].touched">{{
-              getErrorMessage()
+            <mat-error *ngIf="f['mobileNumber'].invalid || f['mobileNumber'].touched">{{
+              errorMessage
             }}</mat-error>
           </mat-form-field>
           
@@ -68,7 +73,7 @@
               <mat-icon>location_on</mat-icon>
             </button>
             <mat-error *ngIf="f['city'].invalid && f['city'].touched">{{
-              getErrorMessage()
+              errorMessage
             }}</mat-error>
           </mat-form-field>
           
@@ -92,7 +97,7 @@
               <mat-icon>person_outline</mat-icon>
             </button>
             <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched">{{
-              getErrorMessage()
+              errorMessage
             }}</mat-error>
           </mat-form-field>
           
@@ -114,7 +119,7 @@
               <mat-icon>mail_outline</mat-icon>
             </button>
             <mat-error *ngIf="f['email'].invalid && f['email'].touched">{{
-              getErrorMessage()
+              errorMessage
             }}</mat-error>
           </mat-form-field>
           
@@ -145,7 +150,7 @@
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
           <mat-error *ngIf="f['password'].invalid && f['password'].touched">{{
-            getErrorMessage()
+            errorMessage
           }}</mat-error>
           </mat-form-field>
           
