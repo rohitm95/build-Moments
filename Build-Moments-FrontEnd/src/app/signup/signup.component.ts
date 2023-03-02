@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,18 +14,18 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  profileForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    mobileNumber: new FormControl(''),
-    city: new FormControl(''),
+  profileForm: UntypedFormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
+    firstName: new UntypedFormControl(''),
+    lastName: new UntypedFormControl(''),
+    mobileNumber: new UntypedFormControl(''),
+    city: new UntypedFormControl(''),
   });
 
   constructor(
     private router: Router,
-    fb: FormBuilder,
+    fb: UntypedFormBuilder,
     private authService: AuthService
   ) {
     this.profileForm = fb.group({
@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
     return this.profileForm.controls;
   }
 
-  signup(form: FormGroup) {
+  signup(form: UntypedFormGroup) {
     // console.log(form.value);
     this.authService.signup(form.value);
   }

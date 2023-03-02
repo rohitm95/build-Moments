@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
-  FormBuilder,
+  UntypedFormBuilder,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
@@ -14,15 +14,15 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  profileForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+  profileForm: UntypedFormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
   });
   hide = true;
 
   constructor(
     private router: Router,
-    fb: FormBuilder,
+    fb: UntypedFormBuilder,
     private authService: AuthService
   ) {
     this.profileForm = fb.group({
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     return this.profileForm.controls;
   }
 
-  login(form: FormGroup) {
+  login(form: UntypedFormGroup) {
     // console.log(form.value);
     this.authService.login(form.value);
   }
