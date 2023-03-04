@@ -23,37 +23,43 @@
             >
               <mat-icon>person_outline</mat-icon>
             </button>
-            <mat-error *ngIf="f['firstName'].invalid && f['firstName'].touched">{{
-              errorMessage
-            }}</mat-error>
+            <mat-error *ngIf="f['firstName'].invalid && f['firstName'].touched">
+              First Name is Required
+            </mat-error>
           </mat-form-field>
           
-          <mat-form-field floatLabel="always">
-            <mat-label>Mobile No.</mat-label>
-            <!-- <mat-select-country
-                    label="Country"
-                    formControlName="countryFormControl">
-            </mat-select-country> -->
-            <input
-              matInput
-              type="text"
-              placeholder="10 digit Mobile Number"
-              formControlName="mobileNumber"
-              maxlength="10"
-              required
-            />
-            <button
-              matPrefix
-              mat-icon-button
-              class="icon-button"
-              aria-hidden="true"
-            >
-              <mat-icon>phone_iphone</mat-icon>
-            </button>
-            <mat-error *ngIf="f['mobileNumber'].invalid || f['mobileNumber'].touched">{{
-              errorMessage
-            }}</mat-error>
-          </mat-form-field>
+          <div class="mobile-number-field">
+            <mat-select-country
+              label=""
+              [showCallingCode]="true"
+              formControlName="countryFormControl"
+              placeHolder="Select Country"
+              class="country-picker">
+            </mat-select-country>
+
+            <mat-form-field floatLabel="always">
+              <mat-label>Mobile No.</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="10 digit Mobile Number"
+                formControlName="mobileNumber"
+                maxlength="10"
+                required
+              />
+              <!-- <button
+                matPrefix
+                mat-icon-button
+                class="icon-button"
+                aria-hidden="true"
+              >
+                <mat-icon>phone_iphone</mat-icon>
+              </button> -->
+              <mat-error *ngIf="f['mobileNumber'].invalid || f['mobileNumber'].touched">
+                10-digit phone number is required
+              </mat-error>
+            </mat-form-field>
+          </div>
           
           <mat-form-field floatLabel="always">
             <mat-label>City</mat-label>
@@ -72,9 +78,7 @@
             >
               <mat-icon>location_on</mat-icon>
             </button>
-            <mat-error *ngIf="f['city'].invalid && f['city'].touched">{{
-              errorMessage
-            }}</mat-error>
+            <mat-error *ngIf="f['city'].invalid && f['city'].touched">City Name is required</mat-error>
           </mat-form-field>
           
         </div>
@@ -96,9 +100,7 @@
             >
               <mat-icon>person_outline</mat-icon>
             </button>
-            <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched">{{
-              errorMessage
-            }}</mat-error>
+            <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched">Last name is required</mat-error>
           </mat-form-field>
           
           <mat-form-field floatLabel="always">
@@ -118,9 +120,7 @@
             >
               <mat-icon>mail_outline</mat-icon>
             </button>
-            <mat-error *ngIf="f['email'].invalid && f['email'].touched">{{
-              errorMessage
-            }}</mat-error>
+            <mat-error *ngIf="f['email'].invalid && f['email'].touched">Invalid email address</mat-error>
           </mat-form-field>
           
           <mat-form-field floatLabel="always">
@@ -149,9 +149,7 @@
           >
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
-          <mat-error *ngIf="f['password'].invalid && f['password'].touched">{{
-            errorMessage
-          }}</mat-error>
+          <mat-error *ngIf="f['password'].invalid && f['password'].touched">Passowrd is required</mat-error>
           </mat-form-field>
           
         </div>
