@@ -11,8 +11,8 @@
             <mat-panel-title class="panel-title"> Moments </mat-panel-title>
           </mat-expansion-panel-header>
           <ul>
-            <li style="font-weight: 500; font-style: normal; font-size: 16px;">Moment List</li>
-            <li class="add-new-moment-link">
+            <li routerLink="moments-list" style="font-weight: 500; font-style: normal; font-size: 16px;">Moment List</li>
+            <li routerLink="add-moment" class="add-new-moment-link">
               <a>Add New Moment</a>
             </li>
           </ul>
@@ -23,6 +23,8 @@
 
   <mat-sidenav-content>
     <app-header (sidenav)="sidenav.toggle()"></app-header>
-    <app-moments-list></app-moments-list>
+    <router-outlet></router-outlet>
+    <!-- <app-moments-list></app-moments-list>
+    <app-add-moment></app-add-moment> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
