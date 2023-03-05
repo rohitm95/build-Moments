@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
     password: new UntypedFormControl(''),
     firstName: new UntypedFormControl(''),
     lastName: new UntypedFormControl(''),
+    countryCode: new UntypedFormControl(''),
     mobileNumber: new UntypedFormControl(''),
     city: new UntypedFormControl(''),
   });
@@ -34,6 +35,7 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      countryCode: ['', [Validators.required]],
       mobileNumber: [
         '',
         [Validators.required, Validators.pattern('[0-9]{10}$')],
@@ -52,6 +54,8 @@ export class SignupComponent implements OnInit {
   }
 
   signup(form: UntypedFormGroup) {
+    form.value.mobileNumber =
+      form?.value?.countryCode?.callingCode + form?.value?.mobileNumber;
     // console.log(form.value);
     this.authService.signup(form.value);
   }
