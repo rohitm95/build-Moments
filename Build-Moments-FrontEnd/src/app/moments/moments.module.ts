@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MomentsListComponent, DialogMomentDeleteDialog } from './moments-list/moments-list.component';
 import { MaterialModule } from '../material.module';
 import { MomentsDashboardComponent } from './moments-dashboard/moments-dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MomentsDashboardComponent } from './moments-dashboard/moments-dashboard
   imports: [
     CommonModule,
     MomentsRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class MomentsModule { }
