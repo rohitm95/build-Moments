@@ -20,7 +20,7 @@
 	"author": "Rohit Mamidwar",
 	"license": "ISC",
 	"dependencies": {
-		"aws-sdk": "^2.1330.0",
+		"aws-client-s3": "^1.4.5",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
 		"cors": "^2.8.5",

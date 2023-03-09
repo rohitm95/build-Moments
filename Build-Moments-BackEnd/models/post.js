@@ -7,10 +7,10 @@ const postSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		imageUrl: {
-			type: String,
-			required: true,
-		},
+		// imageUrl: {
+		// 	type: String,
+		// 	required: true,
+		// },
 		tags: [String],
 		creator: {
 			type: Schema.Types.ObjectId,
