@@ -1,10 +1,12 @@
 <div class="header">
-  <span class="logo"> <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" /> </span>
+  <span class="logo">
+    <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" />
+  </span>
   <div class="body">
     <span class="sign-up"> Sign Up </span>
-    <span class="signInFooter"> To be a member </span>
+    <span class="sign-in-footer"> To be a member </span>
     <form [formGroup]="profileForm">
-      <div class="formContents">
+      <div class="form-contents">
         <div class="form-group">
           <mat-form-field floatLabel="always">
             <mat-label>First Name</mat-label>
@@ -27,14 +29,15 @@
               First Name is Required
             </mat-error>
           </mat-form-field>
-          
+
           <div class="mobile-number-field">
             <mat-select-country
               label=""
               [showCallingCode]="true"
               formControlName="countryCode"
               placeHolder="Select Country"
-              class="country-picker">
+              class="country-picker"
+            >
             </mat-select-country>
 
             <mat-form-field floatLabel="always">
@@ -55,12 +58,14 @@
               >
                 <mat-icon>phone_iphone</mat-icon>
               </button> -->
-              <mat-error *ngIf="f['mobileNumber'].invalid || f['mobileNumber'].touched">
+              <mat-error
+                *ngIf="f['mobileNumber'].invalid || f['mobileNumber'].touched"
+              >
                 10-digit phone number is required
               </mat-error>
             </mat-form-field>
           </div>
-          
+
           <mat-form-field floatLabel="always">
             <mat-label>City</mat-label>
             <input
@@ -78,9 +83,10 @@
             >
               <mat-icon>location_on</mat-icon>
             </button>
-            <mat-error *ngIf="f['city'].invalid && f['city'].touched">City Name is required</mat-error>
+            <mat-error *ngIf="f['city'].invalid && f['city'].touched"
+              >City Name is required</mat-error
+            >
           </mat-form-field>
-          
         </div>
         <div class="form-group">
           <mat-form-field floatLabel="always">
@@ -100,9 +106,11 @@
             >
               <mat-icon>person_outline</mat-icon>
             </button>
-            <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched">Last name is required</mat-error>
+            <mat-error *ngIf="f['lastName'].invalid && f['lastName'].touched"
+              >Last name is required</mat-error
+            >
           </mat-form-field>
-          
+
           <mat-form-field floatLabel="always">
             <mat-label>Email-ID</mat-label>
             <input
@@ -120,9 +128,11 @@
             >
               <mat-icon>mail_outline</mat-icon>
             </button>
-            <mat-error *ngIf="f['email'].invalid && f['email'].touched">Invalid email address</mat-error>
+            <mat-error *ngIf="f['email'].invalid && f['email'].touched"
+              >Invalid email address</mat-error
+            >
           </mat-form-field>
-          
+
           <mat-form-field floatLabel="always">
             <mat-label>Enter Password</mat-label>
             <input
@@ -141,17 +151,18 @@
               <mat-icon>lock</mat-icon>
             </button>
             <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-          <mat-error *ngIf="f['password'].invalid && f['password'].touched">Passowrd is required</mat-error>
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="f['password'].invalid && f['password'].touched"
+              >Passowrd is required</mat-error
+            >
           </mat-form-field>
-          
         </div>
       </div>
       <button
@@ -165,9 +176,9 @@
         Submit
       </button>
     </form>
-    <span class="notAMember"
+    <span class="not-a-member"
       >Already a member?
-      <span class="signUp" (click)="navigateToSignIn()">Sign In</span>
+      <span class="sign-up" (click)="navigateToSignIn()">Sign In</span>
     </span>
   </div>
 </div>

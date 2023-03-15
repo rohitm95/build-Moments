@@ -31,8 +31,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get f() {
     return this.profileForm.controls;
@@ -48,7 +47,10 @@ export class LoginComponent implements OnInit {
   }
 
   getErrorMessage() {
-    if (this.f['email'].hasError('required') || this.f['password'].hasError('required')) {
+    if (
+      this.f['email'].hasError('required') ||
+      this.f['password'].hasError('required')
+    ) {
       return 'You must enter a value';
     }
 

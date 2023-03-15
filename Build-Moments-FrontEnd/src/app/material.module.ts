@@ -24,7 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatChipsModule } from '@angular/material/chips';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const Material = [
   MatToolbarModule,
@@ -52,11 +52,11 @@ const Material = [
   MatMenuModule,
   MatExpansionModule,
   MatChipsModule,
-  DragDropModule
+  DragDropModule,
 ];
 
 @NgModule({
-   imports: [Material],
-   exports: [Material]
+  imports: [Material],
+  exports: [Material],
 })
-export class MaterialModule { }
+export class MaterialModule {}

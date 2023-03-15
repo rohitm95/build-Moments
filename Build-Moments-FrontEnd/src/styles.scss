@@ -1,62 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import '../node_modules/bootstrap/scss/bootstrap';
 
-html, body { height: 100%; font-size: 18px; color: #001B30}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/*reset css section*/
-body, html {
-	margin: 0;
-	padding: 0;
-}
-body{
-	line-height: 1;
-	background-color: #f7f6f6;
-}
-body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul,
-ol, li, dl, dt, dd, form, a, fieldset, input, th, td{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: none;
-}
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-h1, h2, h3, h4, h5, h6{
-	font-size: 100%;
-}
-ul, ol{
-	list-style: none;
+html,
+body {
+  height: 100%;
+  font-size: 18px;
+  color: #001b30;
+  margin: 0;
+  padding: 0;
 }
 
-a{
-	color: black;
-	text-decoration: none;
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  line-height: 1;
+  background-color: #f7f6f6;
 }
+
+/* reset css section */
+
+body,
+html,
+div,
+blockquote,
+img,
+label,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+a,
+fieldset,
+input,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
 img {
   border: 0;
   max-width: 100%;
   height: auto;
   vertical-align: middle;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
+
 textarea {
   overflow: auto;
   vertical-align: top;
 }
-.clearfix{
-	clear: both;
-	overflow: hidden;
-	display: block;
+
+.clearfix {
+  clear: both;
+  overflow: hidden;
+  display: block;
 }
-.clearfix:after, .clearfix:before{
-	content: '';
-	display: block;
-	clear: both;
-	overflow: hidden;
+
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
 }

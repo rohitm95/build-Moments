@@ -1,8 +1,10 @@
 <div class="header">
-  <span class="logo"> <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" /> </span>
+  <span class="logo">
+    <img src="assets/images/5D-logo-removebg.png" alt="5D Logo" />
+  </span>
   <div class="body">
-    <span class="signIn"> Sign In </span>
-    <span class="signInFooter"> To start using the app </span>
+    <span class="sign-in"> Sign In </span>
+    <span class="sign-in-footer"> To start using the app </span>
     <form [formGroup]="profileForm">
       <div class="form-group">
         <mat-form-field floatLabel="always">
@@ -52,7 +54,7 @@
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide"
           >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
         </mat-form-field>
         <mat-error *ngIf="f['password'].invalid && f['password'].touched">{{
@@ -70,9 +72,9 @@
         Sign In
       </button>
     </form>
-    <span class="notAMember"
+    <span class="not-a-member"
       >Not a member?
-      <span class="signUp" (click)="navigateToSignUp()">Sign Up</span>
+      <span class="sign-up" (click)="navigateToSignUp()">Sign Up</span>
     </span>
   </div>
 </div>

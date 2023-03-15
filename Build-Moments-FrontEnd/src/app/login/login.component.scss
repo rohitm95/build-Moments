@@ -1,40 +1,44 @@
 .header {
-  background-color: #001B30;
+  background-color: #001b30;
   text-align: center;
+
   .logo {
     height: 20px;
     width: 20px;
     padding: 20px;
     line-height: 25vh;
   }
+
   .body {
     background-color: white;
     border-top-left-radius: 50px 20px;
-    .signIn {
+
+    .sign-in {
       font-size: 40px;
       font-style: normal;
       font-weight: 700;
       line-height: 80px;
-      letter-spacing: 0em;
-      text-align: left;
+      letter-spacing: 0;
       width: 100vw;
       display: block;
       text-align: center;
     }
-    .signInFooter {
+
+    .sign-in-footer {
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
-      letter-spacing: 0em;
-      text-align: left;
+      letter-spacing: 0;
       width: 100vw;
       display: block;
       text-align: center;
     }
+
     form {
       width: 20vw;
       margin: auto;
       margin-top: 40px;
+
       .form-group {
         mat-form-field {
           width: 100%;
@@ -42,22 +46,26 @@
           font-size: 16px;
         }
       }
+
       .icon-button {
         font-size: 25px;
         pointer-events: none;
       }
+
       button.login {
         width: 150px;
-        border-radius: 25px 25px;
+        border-radius: 25px;
         margin: 10px 0;
-        background-color: #001B30;
+        background-color: #001b30;
         color: white;
       }
     }
-    .notAMember {
+
+    .not-a-member {
       line-height: 50px;
       width: 20vw;
-      .signUp {
+
+      .sign-up {
         font-weight: bold;
         color: #000;
         cursor: pointer;

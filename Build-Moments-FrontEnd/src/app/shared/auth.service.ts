@@ -4,34 +4,35 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   token: String = '';
   userId: String = '';
-  authUrl = 'http://localhost:3000/auth'
+  authUrl = 'http://localhost:3000/auth';
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private http: HttpClient,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService
+  ) {}
 
-    login(data: any) {
-      this.http.post<any>(`${this.authUrl}/login`, data).subscribe(res => {
-        // console.log(res)
-        this.token = res.token;
-        this.userId = res.userId;
-        window.localStorage.setItem('token', this.token.toString());
-        window.localStorage.setItem('userId', this.userId.toString());
-        this.toastr.success('Login Success!!')
-        this.router.navigate(['/moments']);
-      })
-    }
+  login(data: any) {
+    this.http.post<any>(`${this.authUrl}/login`, data).subscribe((res) => {
+      // console.log(res)
+      this.token = res.token;
+      this.userId = res.userId;
+      window.localStorage.setItem('token', this.token.toString());
+      window.localStorage.setItem('userId', this.userId.toString());
+      this.toastr.success('Login Success!!');
+      this.router.navigate(['/moments']);
+    });
+  }
 
-    signup(data: any) {
-      this.http.post<any>(`${this.authUrl}/signup`, data).subscribe(res => {
-        this.toastr.success('User Registered Successfully!', 'Please Login')
-        this.router.navigate(['/login']);
-      })
-    }
+  signup(data: any) {
+    this.http.post<any>(`${this.authUrl}/signup`, data).subscribe((res) => {
+      this.toastr.success('User Registered Successfully!', 'Please Login');
+      this.router.navigate(['/login']);
+    });
+  }
 }

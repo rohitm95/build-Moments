@@ -24,30 +24,30 @@ mat-toolbar.mat-toolbar {
 }
 
 mat-list-item {
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
 }
 
 // ul {
-  // list-style-type: disc;
-  // list-style-position: inside;
-  // font-weight: bold;
+// list-style-type: disc;
+// list-style-position: inside;
+// font-weight: bold;
 
-  li {
-    text-align: justify;
-    margin: 15px;
-    font-size: 16px;
-  }
+li {
+  text-align: justify;
+  margin: 15px;
+  font-size: 16px;
+}
 
-  // li.add-new-moment-link {
-  //   list-style-type: none;
-  //   font-weight: 400;
-  //   padding-left: 15px;
-  //   font-style: normal;
-  //   font-size: 16px;
-  // }
+// li.add-new-moment-link {
+//   list-style-type: none;
+//   font-weight: 400;
+//   padding-left: 15px;
+//   font-style: normal;
+//   font-size: 16px;
+// }
 // }
 
-.mat-expansion-panel:not([class*=mat-elevation-z]) {
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
   box-shadow: none;
 }
 
@@ -70,4 +70,8 @@ mat-nav-list {
 .active {
   font-weight: 600;
   font-style: normal;
+}
+
+.sidenav-content {
+  padding: 5px;
 }
