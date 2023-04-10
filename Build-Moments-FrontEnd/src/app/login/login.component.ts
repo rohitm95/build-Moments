@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(
-    private router: Router,
+    public router: Router,
     fb: UntypedFormBuilder,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     this.profileForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
