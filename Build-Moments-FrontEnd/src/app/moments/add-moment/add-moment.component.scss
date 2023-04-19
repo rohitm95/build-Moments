@@ -3,3 +3,10 @@
   padding: 19px 0 19px 25px;
   font-weight: 700;
 }
+
+.form-group {
+  mat-form-field {
+    width: 100%;
+    margin: 10px;
+  }
+}

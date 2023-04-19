@@ -21,10 +21,10 @@
             <mat-panel-title class="panel-title"> Moments </mat-panel-title>
           </mat-expansion-panel-header>
           <ul>
-            <li routerLink="moments-list" routerLinkActive="active">
+            <li class="link" routerLink="moments-list" routerLinkActive="active">
               Moment List
             </li>
-            <li routerLink="add-moment" routerLinkActive="active">
+            <li class="link" routerLink="add-moment" routerLinkActive="active">
               Add New Moment
             </li>
           </ul>
@@ -35,6 +35,8 @@
 
   <mat-sidenav-content class="sidenav-content">
     <app-header (sidenav)="sidenav.toggle()"></app-header>
-    <router-outlet></router-outlet>
+    <div class="sidenav-container">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

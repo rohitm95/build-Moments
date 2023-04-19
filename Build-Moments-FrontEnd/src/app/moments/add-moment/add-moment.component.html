@@ -1,49 +1,37 @@
 <div class="container-title">Add New Moment</div>
-<div class="container">
-  <form [formGroup]="form">
-    <mat-form-field floatLabel="always" class="tag-chip-list">
-      <mat-chip-list #chipList aria-label="Tag selection" formArrayName="tags">
-        <mat-chip
-          *ngFor="let tag of tagControls.value"
-          [selectable]="selectable"
-          [removable]="removable"
-          (removed)="removeTag(tag)"
-        >
-          {{ tag }}
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-        </mat-chip>
-        <input
-          placeholder="Tags"
-          [matChipInputFor]="chipList"
-          [matChipInputSeparatorKeyCodes]="seperatorKeysCodes"
-          [matChipInputAddOnBlur]="addOnBlur"
-          (matChipInputTokenEnd)="addTag($event)"
-        />
-      </mat-chip-list>
-    </mat-form-field>
-    <!-- Progress Bar -->
-    <!-- <div class="progress form-group" *ngIf="progress > 0">
-      <div
-        class="progress-bar progress-bar-striped bg-success"
-        role="progressbar"
-        [style.width.%]="progress"
-      ></div>
-    </div>
+<mat-card>
+  <form [formGroup]="formData">
     <div class="form-group">
-      <input type="file" (change)="uploadFile($event)" />
+      <mat-form-field floatLabel="always">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Sample Title" type="text" required />
+      </mat-form-field>
+
+      <mat-form-field floatLabel="always">
+        <mat-label>Tags</mat-label>
+        <mat-chip-list #chipList>
+          <mat-chip
+            *ngFor="
+              let requirement of formData.get('requirements')?.value;
+              let i = index
+            "
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(i)"
+            >{{ requirement
+            }}<mat-icon matChipRemove *ngIf="removable"
+              >cancel</mat-icon
+            ></mat-chip
+          >
+          <input
+            placeholder="Add Tag"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="seperatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field>
     </div>
-    <div class="form-group input-group-lg">
-      <input class="form-control" placeholder="Name" formControlName="name" />
-    </div>
-    <div class="form-group">
-      <button class="btn btn-danger btn-block btn-lg">Create</button>
-    </div> -->
-    <input
-      (change)="onFilePicked($event)"
-      class="custom-file-input"
-      placeholder="Upload File"
-      type="file"
-    />
-    <button (click)="onFileUpload()" class="myButton">Upload File</button>
   </form>
-</div>
+</mat-card>
