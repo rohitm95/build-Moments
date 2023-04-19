@@ -5,11 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './moments-dashboard.component.html',
   styleUrls: ['./moments-dashboard.component.scss'],
 })
-export class MomentsDashboardComponent implements OnInit {
+export class MomentsDashboardComponent {
   opened: boolean = true;
   panelOpenState: boolean = false;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

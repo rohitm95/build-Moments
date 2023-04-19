@@ -1,24 +1,44 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { MomentsDashboardComponent } from './moments-dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('MomentsDashboardComponent', () => {
+  let component: MomentsDashboardComponent;
+  let fixture: ComponentFixture<MomentsDashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
+      declarations: [MomentsDashboardComponent],
+      imports: [
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatListModule,
+        MatExpansionModule
+      ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(MomentsDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have opened property set to true', () => {
+    expect(component.opened).toBeTruthy();
+  });
+
+  it('should have panelOpenState property set to false', () => {
+    expect(component.panelOpenState).toBeFalsy();
   });
 });

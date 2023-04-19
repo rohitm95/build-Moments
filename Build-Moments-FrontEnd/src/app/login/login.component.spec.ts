@@ -1,13 +1,36 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from './login.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-
+  let routerMock: Router;
+  let authServiceMock: AuthService;
+  
   beforeEach(async () => {
+    routerMock = jasmine.createSpyObj(['navigate']);
+    authServiceMock = jasmine.createSpyObj(['signup']);
+
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientTestingModule,
+      ],
+      providers: [
+        { provide: AuthService, useValue: authServiceMock },
+        { provide: Router, useValue: routerMock },
+        UntypedFormGroup,
+        UntypedFormControl,
+        UntypedFormBuilder,
+      ],
     }).compileComponents();
   });
 

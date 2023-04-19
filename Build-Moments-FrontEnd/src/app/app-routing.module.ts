@@ -17,7 +17,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MomentsListComponent,
+        redirectTo: 'moments-list',
+        pathMatch: 'full'
       },
       {
         path: 'moments-list',

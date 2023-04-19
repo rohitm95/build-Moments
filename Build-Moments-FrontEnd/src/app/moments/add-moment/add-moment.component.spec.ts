@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddMomentComponent } from './add-moment.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AddMomentComponent', () => {
   let component: AddMomentComponent;
@@ -9,6 +14,13 @@ describe('AddMomentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddMomentComponent],
+      imports: [
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatChipsModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AddMomentComponent);

@@ -26,23 +26,24 @@ exports.getPosts = async (req, res, next) => {
 
 exports.createPost = async (req, res, next) => {
 	const errors = validationResult(req);
+	// console.log(errors)
 	if (!errors.isEmpty()) {
 		const error = new Error('Validation failed, entered data is incorrect.');
 		error.statusCode = 422;
 		throw error;
 	}
-	if (!req.file) {
-		const error = new Error('No image provided.');
-		error.statusCode = 422;
-		throw error;
-	}
-	const imageUrl = req.file.path.replace('\\', '/');
+	// if (!req.file) {
+	// 	const error = new Error('No image provided.');
+	// 	error.statusCode = 422;
+	// 	throw error;
+	// }
+	// const imageUrl = req.file.path.replace('\\', '/');
 	const title = req.body.title;
 	const tags = req.body.tags;
 	const post = new Post({
 		title: title,
 		tags: tags,
-		imageUrl: imageUrl,
+		// imageUrl: imageUrl,
 		creator: req.userId,
 	});
 	try {
@@ -54,6 +55,7 @@ exports.createPost = async (req, res, next) => {
 			creator: { _id: user._id },
 		});
 	} catch (err) {
+		// console.log('error', err)
 		if (!err.statusCode) {
 			err.statusCode = 500;
 		}
@@ -101,6 +103,7 @@ exports.updatePost = async (req, res, next) => {
 		const result = await post.save();
 		res.status(200).json({ message: 'Post updated!', post: result });
 	} catch (err) {
+		// console.log('error', err)
 		if (!err.statusCode) {
 			err.statusCode = 500;
 		}
@@ -128,12 +131,29 @@ exports.deletePost = async (req, res, next) => {
 
 		res.status(200).json({ message: 'Deleted post.' });
 	} catch (err) {
+		// console.log('error', err)
 		if (!err.statusCode) {
 			err.statusCode = 500;
 		}
 		next(err);
 	}
 };
+
+// exports.uploadFile = async (req, res, next) => {
+//  // TODO: Code for uploading file
+// };
+
+// exports.getFiles = async (req, res, next) => {
+// 	// TODO: Code for getting files
+// };
+
+// exports.getFile = async (req, res, next) => {
+// 	// TODO: Code for downloading file
+// };
+
+// exports.deleteFile = async (req, res, next) => {
+// 	// TODO: Code for deleting file
+// };
 
 const clearImage = filePath => {
 	filePath = path.join(__dirname, '..', filePath);

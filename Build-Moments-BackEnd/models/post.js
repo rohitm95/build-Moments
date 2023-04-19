@@ -7,18 +7,21 @@ const postSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		// imageUrl: {
-		// 	type: String,
-		// 	required: true,
-		// },
-		tags: [String],
+		avatar: {
+			type: Array,
+			required: true,
+		},
+		tags: {
+			type: Array
+		},
 		creator: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',
 			required: true,
-		}
+		},
 	},
-	{ timestamps: true }
+	{ timestamps: true },
+	{ collection: 'users' }
 );
 
 module.exports = mongoose.model('Post', postSchema);
