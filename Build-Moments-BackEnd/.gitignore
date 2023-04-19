@@ -1,3 +1,4 @@
 node_modules
 target
 access.log
+.env
