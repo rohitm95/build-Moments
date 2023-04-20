@@ -1,10 +1,17 @@
 const fs = require('fs');
 const path = require('path');
+import {
+	PutObjectCommand,
+	GetObjectCommand,
+	DeleteObjectCommand,
+	S3Client
+} from "@aws-sdk/client-s3";
 
 const { validationResult } = require('express-validator');
 
 const Post = require('../models/post');
 const User = require('../models/user');
+const client = new S3Client({});
 
 exports.getPosts = async (req, res, next) => {
 	try {
@@ -37,7 +44,7 @@ exports.createPost = async (req, res, next) => {
 	// 	error.statusCode = 422;
 	// 	throw error;
 	// }
-	// const imageUrl = req.file.path.replace('\\', '/');
+	const imageUrl = `${ Date.now() }-${ req.file.originalname }`;
 	const title = req.body.title;
 	const tags = req.body.tags;
 	const post = new Post({
@@ -139,21 +146,61 @@ exports.deletePost = async (req, res, next) => {
 	}
 };
 
-// exports.uploadFile = async (req, res, next) => {
-//  // TODO: Code for uploading file
-// };
+exports.uploadFile = async (req, res, next) => {
+	const fileName = `${ Date.now() }-${ req.file.originalname }`;
+	const command = new PutObjectCommand({
+		Bucket: process.env.AWS_S3_BUCKET,
+		Key: fileName,
+		Body: req.file.buffer,
+	});
+
+	try {
+		const response = await client.send(command);
+		if (response.$metadata.httpStatusCode === 200) {
+			res.status(200).send("upload success");
+		}
+	} catch (err) {
+		console.error(err);
+	}
+};
 
 // exports.getFiles = async (req, res, next) => {
 // 	// TODO: Code for getting files
 // };
 
-// exports.getFile = async (req, res, next) => {
-// 	// TODO: Code for downloading file
-// };
+exports.getFile = async (req, res, next) => {
+	const command = new GetObjectCommand({
+		Bucket: process.env.AWS_S3_BUCKET,
+		Key: req.params.fileName,
+	})
 
-// exports.deleteFile = async (req, res, next) => {
-// 	// TODO: Code for deleting file
-// };
+	try {
+		const response = await client.send(command);
+		// transformToByteArray, transformToWebStream, transformToString
+		const str = await response.Body.transformToByteArray();
+		if (response.$metadata.httpStatusCode === 200) {
+			res.status(200).send(str);
+		}
+	} catch (err) {
+		console.error(err);
+	}
+};
+
+exports.deleteFile = async (req, res, next) => {
+	const command = new DeleteObjectCommand({
+		Bucket: process.env.AWS_S3_BUCKET,
+		Key: req.params.fileName,
+	});
+
+	try {
+		const response = await client.send(command);
+		if (response.$metadata.httpStatusCode === 204) {
+			res.status(204).send("deleted successfully");
+		}
+	} catch (err) {
+		console.error(err);
+	}
+};
 
 const clearImage = filePath => {
 	filePath = path.join(__dirname, '..', filePath);

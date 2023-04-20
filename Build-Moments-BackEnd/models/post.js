@@ -7,8 +7,8 @@ const postSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		avatar: {
-			type: Array,
+		imageUrl: {
+			type: String,
 			required: true,
 		},
 		tags: {
@@ -21,7 +21,6 @@ const postSchema = new Schema(
 		},
 	},
 	{ timestamps: true },
-	{ collection: 'users' }
 );
 
 module.exports = mongoose.model('Post', postSchema);

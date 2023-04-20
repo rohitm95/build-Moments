@@ -50,9 +50,9 @@ const fileFilter = (req, file, cb) => {
 
 // app.use(bodyParser.urlencoded()); // x-www-form-urlencoded <form>
 app.use(bodyParser.json()); // application/json
-app.use(
-  multer({ storage: fileStorage, fileFilter: fileFilter }).single("file")
-);
+// app.use(
+//   multer({ storage: fileStorage, fileFilter: fileFilter }).single("file")
+// );
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use((req, res, next) => {
