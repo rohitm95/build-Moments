@@ -3,8 +3,7 @@ const { body } = require('express-validator');
 
 const feedController = require('../controllers/feed');
 const isAuth = require('../middleware/is-auth');
-const multer = require("multer");
-const upload = multer({});
+const upload = require("../middleware/file-upload");
 
 const router = express.Router();
 
@@ -28,7 +27,7 @@ router.put(
 
 router.delete('/post/:postId', isAuth, feedController.deletePost);
 
-router.post('/upload', upload.single('file'), feedController.uploadFile);
+router.post('/upload', upload.array('file', 1), feedController.uploadFile);
 
 // router.get('/files', isAuth, feedController.getFiles);
 

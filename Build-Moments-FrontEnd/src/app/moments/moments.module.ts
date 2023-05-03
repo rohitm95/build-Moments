@@ -11,6 +11,7 @@ import {
 import { MaterialModule } from '../material.module';
 import { MomentsDashboardComponent } from './moments-dashboard/moments-dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MomentsRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
 })
 export class MomentsModule {}

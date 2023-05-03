@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 describe('AddMomentComponent', () => {
   let component: AddMomentComponent;
@@ -19,7 +20,8 @@ describe('AddMomentComponent', () => {
         HttpClientModule,
         MatChipsModule,
         MatFormFieldModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatCardModule
       ]
     }).compileComponents();
 

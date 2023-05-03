@@ -4,7 +4,7 @@
     <div class="form-group">
       <mat-form-field floatLabel="always">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Sample Title" type="text" required />
+        <input matInput placeholder="Sample Title" formControlName="title" type="text" required />
       </mat-form-field>
 
       <mat-form-field floatLabel="always">
@@ -12,7 +12,7 @@
         <mat-chip-list #chipList>
           <mat-chip
             *ngFor="
-              let requirement of formData.get('requirements')?.value;
+              let requirement of formData.get('tags')?.value;
               let i = index
             "
             [selectable]="selectable"
@@ -24,6 +24,7 @@
             ></mat-chip
           >
           <input
+          formArrayName="tags" 
             placeholder="Add Tag"
             [matChipInputFor]="chipList"
             [matChipInputSeparatorKeyCodes]="seperatorKeysCodes"
@@ -32,6 +33,43 @@
           />
         </mat-chip-list>
       </mat-form-field>
+    </div>
+
+    <div class="col-md-6" *ngIf="progress">
+      <div class="progress form-group">
+        <div
+          class="progress-bar progress-bar-striped bg-success"
+          role="progressbar"
+          [style.width.%]="progress"
+        ></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div
+        class="fileupload"
+        appDragDropFileUpload
+        (click)="fileField.click()"
+        (fileDropped)="upload($event)"
+      >
+        <span class="ddinfo">Choose a file or drag here</span>
+        <input
+          type="file"
+          formControlName="file"
+          #fileField
+          (change)="upload($event)"
+          hidden
+          required
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="image-list" *ngFor="let file of fileArr; let i = index">
+        <div class="profile">
+          <img [src]="sanitize(file['url'])" alt="" />
+        </div>
+        <p>{{ file.item.name }}</p>
+      </div>
+      <p class="message">{{ msg }}</p>
     </div>
   </form>
 </mat-card>

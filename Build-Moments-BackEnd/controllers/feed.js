@@ -12,6 +12,7 @@ const { validationResult } = require('express-validator');
 const Post = require('../models/post');
 const User = require('../models/user');
 const client = new S3Client({});
+const { inspect } = require('util');
 
 exports.getPosts = async (req, res, next) => {
 	try {
@@ -39,18 +40,13 @@ exports.createPost = async (req, res, next) => {
 		error.statusCode = 422;
 		throw error;
 	}
-	// if (!req.file) {
-	// 	const error = new Error('No image provided.');
-	// 	error.statusCode = 422;
-	// 	throw error;
-	// }
-	const imageUrl = `${ Date.now() }-${ req.file.originalname }`;
+	const imageUrl = this.fileName;
 	const title = req.body.title;
 	const tags = req.body.tags;
 	const post = new Post({
 		title: title,
 		tags: tags,
-		// imageUrl: imageUrl,
+		imageUrl: imageUrl,
 		creator: req.userId,
 	});
 	try {
@@ -147,21 +143,27 @@ exports.deletePost = async (req, res, next) => {
 };
 
 exports.uploadFile = async (req, res, next) => {
-	const fileName = `${ Date.now() }-${ req.file.originalname }`;
-	const command = new PutObjectCommand({
-		Bucket: process.env.AWS_S3_BUCKET,
-		Key: fileName,
-		Body: req.file.buffer,
-	});
+	const output = inspect(req.body.file, { depth: null, colorize: true})
+	console.log(output);
+	// console.log('body',JSON.stringify(req.body.file));
+	const fileName = `${ Date.now() }-${ req.body.file.originalname }`;
+	console.log(req.files)
+	// console.log('file', req.body.file)
+	// const command = new PutObjectCommand({
+	// 	Bucket: process.env.AWS_S3_BUCKET,
+	// 	Key: fileName,
+	// 	Body: req.body.file.buffer,
+	// });
 
-	try {
-		const response = await client.send(command);
-		if (response.$metadata.httpStatusCode === 200) {
-			res.status(200).send("upload success");
-		}
-	} catch (err) {
-		console.error(err);
-	}
+	// try {
+	// 	const response = await client.send(command);
+	// 	if (response.$metadata.httpStatusCode === 200) {
+	// 		console.log('response', response);
+	// 		res.status(200).send("upload success");
+	// 	}
+	// } catch (err) {
+	// 	console.error(err);
+	// }
 };
 
 // exports.getFiles = async (req, res, next) => {
