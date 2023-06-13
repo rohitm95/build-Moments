@@ -20,8 +20,8 @@
 	"author": "Rohit Mamidwar",
 	"license": "ISC",
 	"dependencies": {
-		"@aws-sdk/client-s3": "^3.315.0",
-		"@aws-sdk/credential-providers": "^3.315.0",
+		"@aws-sdk/client-s3": "^3.350.0",
+		"@aws-sdk/credential-providers": "^3.351.0",
 		"@aws-sdk/protocol-http": "^3.310.0",
 		"@aws-sdk/s3-request-presigner": "^3.315.0",
 		"aws-client-s3": "^1.4.5",
