@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ToastrService } from 'ngx-toastr';
 import { MomentsListComponent } from './moments-list.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FeedService } from 'src/app/shared/feed.service';
 import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';

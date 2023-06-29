@@ -4,7 +4,7 @@ import { MomentsDashboardComponent } from './moments-dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 describe('MomentsDashboardComponent', () => {
