@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ToastrService } from 'ngx-toastr';
 import { MomentsListComponent } from './moments-list.component';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FeedService } from 'src/app/shared/feed.service';
 import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +15,7 @@ describe('MomentsListComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MomentsListComponent],
-      imports: [ MatDialogModule, HttpClientModule ],
+      imports: [ HttpClientModule ],
       providers: [
         FeedService,
         ToastrService

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatLegacyChipInputEvent as MatChipInputEvent } from '@angular/material/legacy-chips';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
